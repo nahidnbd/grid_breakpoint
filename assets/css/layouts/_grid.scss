@@ -1,0 +1,89 @@
+$grid: 12;
+$breakpoints: (sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px);
+
+// Base grid classes
+@for $i from 1 through $grid {
+    .col-#{$i} {
+        width: (100% / $grid) * $i;
+    }
+}
+
+// Small screen max-width (up to 768px)
+@media (max-width: 768px) {
+    @for $i from 1 through $grid {
+        .col-sm-#{$i} {
+            width: (100% / $grid) * $i;
+        }
+    }
+}
+
+// Medium screen min-width (starting from 768px)
+@media (min-width: 768px) {
+    @for $i from 1 through $grid {
+        .col-md-#{$i} {
+            width: (100% / $grid) * $i;
+        }
+    }
+}
+
+// Large screen min-width (starting from 992px)
+@media (min-width: 992px) {
+    @for $i from 1 through $grid {
+        .col-lg-#{$i} {
+            width: (100% / $grid) * $i;
+        }
+    }
+}
+
+// Extra-large screen min-width (starting from 1200px)
+@media (min-width: 1200px) {
+    @for $i from 1 through $grid {
+        .col-xl-#{$i} {
+            width: (100% / $grid) * $i;
+        }
+    }
+}
+
+// Extra-extra-large screen min-width (starting from 1400px)
+@media (min-width: 1400px) {
+    @for $i from 1 through $grid {
+        .col-xxl-#{$i} {
+            width: (100% / $grid) * $i;
+        }
+    }
+}
+
+// Mixin for each breakpoint "you can use this for you project-for example: just use @include sm{write you style here}"
+@mixin sm {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: 1400px) {
+        @content;
+    }
+}
